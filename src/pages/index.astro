@@ -1,0 +1,155 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "Dental Wisdom Vault – Your Trusted Source for Educational Dental Insights and Expert Advice";
+const pageDescription = "Discover expert dental insights, practical advice, and science-backed information to help you achieve and maintain optimal oral health. Trusted by patients and professionals alike.";
+
+const features = [
+  {
+    icon: "fas fa-microscope",
+    title: "Science-Backed Information",
+    description: "Every article and guide is researched and reviewed by dental professionals to ensure accuracy and relevance."
+  },
+  {
+    icon: "fas fa-book-open",
+    title: "Easy-to-Understand Language",
+    description: "Complex dental topics simplified for everyone — no jargon, just clarity."
+  },
+  {
+    icon: "fas fa-users",
+    title: "Trusted by Patients & Practitioners",
+    description: "We’re more than a blog; we’re a resource that dentists recommend to their patients."
+  },
+  {
+    icon: "fas fa-clock",
+    title: "Regular Updates",
+    description: "Stay current with the latest advancements in dental care."
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section with Elegant Gradient and Skewed Background -->
+  <section class="relative bg-gradient-to-br from-primary via-primary/80 to-accent text-white overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.1),transparent_50%)]"></div>
+    <div class="relative container mx-auto px-4 py-24 lg:py-32 text-center font-serif">
+      <h1 class="text-4xl lg:text-6xl font-bold mb-6 leading-tight animate-fade-in-up">
+        Welcome to <span class="text-accent">Dental Wisdom Vault</span>
+      </h1>
+      <p class="text-lg lg:text-xl mb-8 max-w-3xl mx-auto italic">
+        Your journey to a healthier, brighter smile begins here. Discover expert dental insights, practical advice, and science-backed information to help you achieve and maintain optimal oral health.
+      </p>
+      <button class="bg-white text-primary px-8 py-3 rounded-full font-semibold hover:bg-accent hover:text-white transition-colors duration-300 shadow-lg animate-bounce-slow">
+        Explore Insights
+      </button>
+    </div>
+    <!-- Elegant Skewed Accent -->
+    <div class="absolute bottom-0 left-0 w-full h-16 bg-accent transform skew-y-1"></div>
+  </section>
+
+  <!-- Welcome Content Section with Centered Prose -->
+  <section class="bg-gray-50 py-16 lg:py-24">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center font-serif">
+        <h2 class="text-3xl lg:text-4xl font-bold text-primary mb-8">
+          Empowering Your Oral Health Journey
+        </h2>
+        <p class="text-lg lg:text-xl text-gray-700 leading-relaxed mb-6">
+          At <strong>Dental Wisdom Vault</strong>, we believe that informed choices lead to better outcomes. We’re dedicated to empowering you with <em>educational dental insights</em>, <em>expert advice</em>, and <em>actionable tips</em> — all presented in a clean, professional, and elegant format.
+        </p>
+        <p class="text-base text-gray-600 italic">
+          Trusted by patients and professionals alike.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section with Interactive Cards -->
+  <section class="bg-white py-16 lg:py-24">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl lg:text-4xl font-bold text-center text-primary mb-12 font-serif">
+        Why Choose Us?
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {features.map((feature, index) => (
+          <div class={`bg-gradient-to-br from-primary/10 to-accent/10 p-6 rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 animate-fade-in delay-${index * 200}ms group`}>
+            <div class="flex justify-center mb-4">
+              <i class={`${feature.icon} text-4xl text-primary group-hover:text-accent transition-colors duration-300`}></i>
+            </div>
+            <h3 class="text-xl font-semibold text-center text-primary mb-3 font-serif">
+              {feature.title}
+            </h3>
+            <p class="text-gray-700 text-center leading-relaxed">
+              {feature.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action Section with Subtle Elegance -->
+  <section class="bg-gradient-to-r from-primary to-accent text-white py-16 lg:py-24">
+    <div class="container mx-auto px-4 text-center font-serif">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-6">
+        Start Your Journey Today
+      </h2>
+      <p class="text-lg mb-8 max-w-2xl mx-auto">
+        Dive deeper into dental wisdom and unlock the secrets to a radiant smile.
+      </p>
+      <button class="border-2 border-white text-white px-8 py-3 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-300 shadow-lg">
+        Learn More
+      </button>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  /* Custom Fade-In Animation */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out;
+  }
+  .animate-fade-in-up {
+    animation: fadeInUp 1s ease-out;
+  }
+  .animate-bounce-slow {
+    animation: bounce 2s infinite;
+  }
+
+  /* Delays for staggered animations */
+  .delay-0ms { animation-delay: 0ms; }
+  .delay-200ms { animation-delay: 200ms; }
+  .delay-400ms { animation-delay: 400ms; }
+  .delay-600ms { animation-delay: 600ms; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+      transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+      transform: translate3d(0, -30px, 0);
+    }
+    70% {
+      transform: translate3d(0, -15px, 0);
+    }
+    90% {
+      transform: translate3d(0, -4px, 0);
+    }
+  }
+</style>
